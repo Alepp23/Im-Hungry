@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Im Hungry</title>
+
+    <style>
+        body {
+            background: #172033;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        h1 {
+            margin-top: 50px;
+        }
+
+        .shop {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 80px;
+        }
+
+        .squishy {
+            width: 180px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Im Hungry ㅠㅠ</h1>
+<p>click something.</p>
+
+<div class="shop">
+
+    <img src="bread.png"
+         id="bread"
+         class="squishy"
+         onclick="playItem('bread', 'bread.gif', 'bread.png', 'bread.mp3', 3000)">
+
+    <img src="pudding.png"
+         id="pudding"
+         class="squishy"
+         onclick="playItem('pudding', 'pudding.gif', 'pudding.png', 'pudding.mp3', 3000)">
+
+    <img src="biskut.png"
+         id="biskut"
+         class="squishy"
+         onclick="playItem('biskut', 'biskut.gif', 'biskut.png', 'biskut.mp3', 3000)">
+
+</div>
+
+<script>
+
+function playItem(id, gif, stillImage, soundFile, duration) {
+
+    let image = document.getElementById(id);
+
+  
+    image.src = gif + "?" + new Date().getTime();
+
+    
+    let sound = new Audio(soundFile);
+    sound.play();
+
+    
+    setTimeout(function() {
+        image.src = stillImage;
+    }, duration);
+}
+
+
+function playSound(soundFile) {
+
+    let sound = new Audio(soundFile);
+    sound.play();
+
+}
+
+</script>
+
+</body>
+</html>
